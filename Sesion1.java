@@ -16,13 +16,13 @@ public class Sesion1 {
         System.out.println("Nombre: ");
         Persona1.establecerNombre(entrada.next());
         System.out.println("Edad: ");
-        Persona1.establecerEdad(entrada.nextByte());
+        Persona1.establecerEdad(entrada.nextInt());
+        System.out.println("Altura (m): ");
+        Persona1.establecerAltura(entrada.nextDouble());
+        System.out.println("Peso (kg): ");
+        Persona1.establecerPeso(entrada.nextDouble());
         System.out.println("Género: ");
         Persona1.establecerGenero(entrada.next().charAt(0));
-        System.out.println("Altura (m): ");
-        Persona1.establecerAltura(entrada.nextFloat());
-        System.out.println("Peso (kg): ");
-        Persona1.establecerPeso(entrada.nextFloat());
         return Persona1;
     }
 
