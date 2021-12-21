@@ -1,18 +1,45 @@
 public class Persona {
 
-    String nombre;
+    private String nombre;
 
-    int edad;
+    private int edad;
 
-    double altura;
+    private double altura;
 
-    double peso;
+    private double peso;
 
-    char genero;
+    private char genero;
 
-    double imc;
+    private double imc;
 
-    String estado;
+    private String estado;
+
+
+
+    public Persona(String nombre, int edad, double altura, double peso, char genero) {
+
+        this.nombre = nombre;
+        this.edad = edad;
+        this.altura = altura;
+        this.peso = peso;
+        this.genero = genero;
+        this.peso = peso;
+        imc = (int) (peso/(altura*altura));
+        estado = calcularIMC(imc);
+
+    }
+
+    public Persona(String nombre, int edad, double altura, double peso, char genero, double imc, String estado) {
+
+        this.nombre = nombre;
+        this.edad = edad;
+        this.altura = altura;
+        this.peso = peso;
+        this.genero = genero;
+        this.imc = imc;
+        this.estado = calcularIMC(imc);
+    }
+
 
     public void setNombre(String nombre) {
 
@@ -66,19 +93,31 @@ public class Persona {
 
     public double getImc() {
 
-        this.imc = peso / (altura * altura);
+        imc = peso / (altura * altura);
         return imc;
     }
 
-    public String getEstado() {
+    public String calcularIMC(double imc) {
 
-        double imc = getImc();
-        if (imc < 10.5) this.estado = "Peso inferior al normal, ¿quieres unas lentejas?";
-        if (imc >= 18.5 && imc < 24.9) this.estado = "Peso normal";
-        if (imc >= 24.9 && imc < 29.9) this.estado = "Peso superior al normal, usted sufre sobrepeso";
-        if (imc > 29.9) this.estado = "Peso muy superior al normal, usted sufre de obesidad";
+        if (imc < 10.5) estado = "Peso inferior al normal";
+        if (imc >= 18.5 && imc < 24.9) estado = "Peso normal";
+        if (imc >= 24.9 && imc < 29.9) estado = "Sobrepeso";
+        if (imc > 29.9) estado = "Obesidad";
         return estado;
     }
 
+    @Override
+    public String toString() {
+
+        return "Persona{" +
+                "\"nombre\"=\"" + nombre +  '\"' +
+                ", \"edad\"=\"" +  edad + '\"' +
+                ", \"altura\"=\"" + altura + '\"' +
+                ", \"peso\"=\"" + peso + '\"' +
+                ", \"genero\"=\"" + genero + '\"' +
+                ", \"imc\"=\"" + imc + '\"' +
+                ", \"estado\"=\"" + estado + '\"' +
+                '}';
+    }
 
 }
