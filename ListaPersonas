@@ -1,0 +1,71 @@
+import java.util.Arrays;
+import java.util.Scanner;
+import java.io.PipedWriter;
+
+public class ListaPersonas {
+
+    private final int LIMITE_LISTA;
+
+    private Persona persona;
+
+    private int numPersonas;
+
+    private Persona[] totalPersonas;
+
+
+    public ListaPersonas() {
+
+        LIMITE_LISTA = 10;
+        numPersonas = 0;
+        totalPersonas = new Persona[LIMITE_LISTA];
+    }
+
+    public void setNumPersonas(int numPersonas) {
+
+        this.numPersonas = numPersonas;
+    }
+
+    public int getNumPersonas() {
+
+        return numPersonas;
+    }
+
+    public void mostrarListaPersonas() {
+
+        System.out.println("Hay un total de " + numPersonas + " personas");
+        for (int x = 0; x < numPersonas; x++) {
+            System.out.println((x + 1) + " " + totalPersonas[x].toString());
+        }
+    }
+
+    public boolean insertarPersona(Persona persona) {
+
+        boolean resultado = true;
+        if (numPersonas < LIMITE_LISTA) {
+            if (numPersonas > 0) {
+                for (int x = 0; x < numPersonas; x++) {
+                    if (totalPersonas[x].getNombre().equals(persona.getNombre())) {
+                        resultado = false;
+                        System.out.println("Ya exista una persona con ese nombre");
+                        break;
+                    }
+                }
+            }
+
+            if (resultado == true) {
+                totalPersonas[numPersonas++] = persona;
+            }
+        }
+        return resultado;
+    }
+
+    public Persona[] getTotalPersonas() {
+
+        return totalPersonas;
+    }
+
+    public void setTotalPersonas(Persona[] totalPersonas){
+        this.totalPersonas = totalPersonas;
+
+    }
+}
