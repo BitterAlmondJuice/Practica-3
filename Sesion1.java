@@ -5,7 +5,7 @@ public class Sesion1 {
     public static int menu(Scanner entrada) {
 
         int resultado;
-        System.out.print("Menú Práctica 3:\n\b1. Insertar persona.\n\b2. Listar Personas\n\b0. Finalizar personas\nIntroduzca una opción del menú");
+        System.out.print("Menú Práctica 3:\n\b1. Insertar persona.\n\b2. Listar Personas\n\b0. Finalizar personas\nIntroduzca una opción del menú: ");
         resultado = entrada.nextByte();
         return resultado;
     }
@@ -14,15 +14,15 @@ public class Sesion1 {
 
         Persona Persona1 = new Persona();
         System.out.println("Nombre: ");
-        Persona1.establecerNombre(entrada.next());
+        Persona1.setNombre(entrada.next());
         System.out.println("Edad: ");
-        Persona1.establecerEdad(entrada.nextInt());
+        Persona1.setEdad(entrada.nextInt());
         System.out.println("Altura (m): ");
-        Persona1.establecerAltura(entrada.nextDouble());
+        Persona1.setAltura(entrada.nextDouble());
         System.out.println("Peso (kg): ");
-        Persona1.establecerPeso(entrada.nextDouble());
+        Persona1.setPeso(entrada.nextDouble());
         System.out.println("Género: ");
-        Persona1.establecerGenero(entrada.next().charAt(0));
+        Persona1.setGenero(entrada.next().charAt(0));
         return Persona1;
     }
 
